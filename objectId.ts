@@ -5,7 +5,7 @@
  *
  * @example Basic Usage
  * ```ts
- * import objectid from "@bhb603/object-id";
+ * import * as objectid from "@bhb603/object-id";
  *
  * objectid.generate(); // "66bfa7a62b89ff9d0fef51a2"
  * objectid.parseTimestamp("66bfa7a62b89ff9d0fef51a2"); // 1723836326
@@ -46,6 +46,15 @@ export function objectId(): string {
 }
 
 /**
+ * Alias for {@linkcode objectId}.
+ * Generates a new Object ID using the current timestamp.
+ * @returns {string} The Object ID as a hexadecimal string
+ */
+export function generate(): string {
+  return objectId();
+}
+
+/**
  * Generates a new Object ID using the specified timestamp.
  * @param {number} timestamp The unix timestamp in SECONDS
  * @return {string} The Object ID as a hexadecimal string
@@ -68,10 +77,3 @@ export function parseTimestamp(objectId: string): number {
   const timestampHex = objectId.slice(0, 8);
   return parseInt(timestampHex, 16);
 }
-
-export default {
-  generate: objectId,
-  fromTimestamp,
-  objectId,
-  parseTimestamp,
-} as const;
