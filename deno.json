@@ -2,6 +2,9 @@
   "name": "@bhb603/object-id",
   "version": "1.0.0-rc.1",
   "exports": "./objectId.ts",
+  "publish": {
+    "include": ["LICENSE", "README.md", "objectId.ts"]
+  },
   "tasks": {
     "check": "deno fmt --check && deno lint && deno check **/*.ts",
     "test": "deno test"
