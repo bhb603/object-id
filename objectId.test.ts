@@ -27,4 +27,10 @@ Deno.test("objectId", async (t: Deno.TestContext) => {
     assertEquals(id.length, 24);
     assertEquals(id.slice(0, 8), "5d7c2d80");
   });
+
+  await t.step("it parses timestamps from object ids", () => {
+    const id = "66bfa490d7e78d115668762d";
+    const timestamp = objectId.parseTimestamp(id);
+    assertEquals(timestamp, 1723835536);
+  });
 });

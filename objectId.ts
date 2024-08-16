@@ -1,3 +1,16 @@
+/**
+ * This module provides functions for generating and parsing Object IDs.
+ *
+ * @example
+ * ```ts
+ * import objectid from "@bhb603/object-id";
+ *
+ * objectid.generate(); // "66bfa7a62b89ff9d0fef51a2"
+ * objectid.parseTimestamp("66bfa7a62b89ff9d0fef51a2"); // 1723836326
+ * objectid.fromTimestamp(953337600); // "38d2c7002b89ff9d0fef51a3"
+ * ```
+ */
+
 // 5-byte random value generated once per process
 const random = crypto.getRandomValues(new Uint8Array(5));
 const randomHex = Array.from(random)
@@ -20,6 +33,7 @@ function increment(): number {
 
 /**
  * Generates a new Object ID using the current timestamp.
+ * @returns {string} The Object ID as a hexadecimal string
  */
 export function objectId(): string {
   const timestamp = Math.floor(Date.now() / 1000);
@@ -31,6 +45,8 @@ export function objectId(): string {
 
 /**
  * Generates a new Object ID using the specified timestamp.
+ * @param {number} timestamp The unix timestamp in SECONDS
+ * @return {string} The Object ID as a hexadecimal string
  */
 export function fromTimestamp(timestamp: number): string {
   const timestampHex = hex(timestamp, 8);
@@ -40,6 +56,8 @@ export function fromTimestamp(timestamp: number): string {
 
 /**
  * Parses the timestamp from an Object ID.
+ * @param {string} objectId The Object ID to parse.
+ * @return {number} The unix timestamp in SECONDS
  */
 export function parseTimestamp(objectId: string): number {
   if (objectId.length !== 24) {
