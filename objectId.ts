@@ -3,13 +3,13 @@
  *
  * This module provides functions for generating and parsing Object IDs.
  *
- * @example
+ * @example Basic Usage
  * ```ts
  * import objectid from "@bhb603/object-id";
  *
  * objectid.generate(); // "66bfa7a62b89ff9d0fef51a2"
  * objectid.parseTimestamp("66bfa7a62b89ff9d0fef51a2"); // 1723836326
- * objectid.fromTimestamp(953337600); // "38d2c7002b89ff9d0fef51a3"
+ * objectid.fromTimestamp(0); // "00000000a44f2f54b5a1ae29"
  * ```
  */
 
