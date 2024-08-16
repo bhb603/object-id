@@ -1,4 +1,6 @@
 /**
+ * @module
+ *
  * This module provides functions for generating and parsing Object IDs.
  *
  * @example
