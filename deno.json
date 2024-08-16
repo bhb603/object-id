@@ -1,6 +1,6 @@
 {
   "name": "@bhb603/object-id",
-  "version": "1.0.0-rc.3",
+  "version": "1.0.0",
   "exports": "./objectId.ts",
   "publish": {
     "include": ["LICENSE", "README.md", "objectId.ts"]
